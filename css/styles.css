@@ -93,7 +93,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
-.nav-items .link::after {
+.nav-items .link.current::after {
   content: "";
   position: absolute;
   bottom: -1px;
@@ -102,17 +102,12 @@ img {
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
-  transform: scaleX(0);
   /* transition: background-color 250ms var(--prymary-time-func),
     transform 250ms var(--prymary-time-func); */
 }
 .nav-items .link:hover,
 .nav-items .link:focus {
   color: var(--accent-color);
-}
-.nav-items .link:hover::after,
-.nav-items .link:focus::after {
-  transform: scaleX(1);
 }
 .nav-items .link.current {
   color: var(--accent-color);
@@ -216,6 +211,24 @@ img {
 .pic {
   display: flex;
   justify-content: space-between;
+}
+.active-thumb {
+  position: relative;
+  z-index: -1;
+}
+.active-img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--white-text-color);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 .caption-item {
   width: 270px;
@@ -458,4 +471,63 @@ img {
 .portfolio-presentations .card-focus:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.card {
+  position: relative;
+}
+.card:hover .card-overley {
+  display: block;
+}
+.card-overley {
+  position: absolute;
+  font-weight: 400;
+  font-size: 18px;
+  top: 0;
+  left: 0;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  padding: 63px 24px;
+  color: var(--white-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  display: none;
+}
+
+/* Modal-window */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms var(--prymary-time-func);
+}
+.backdrop.is-hidden {
+  visibility: visible;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 528px;
+  min-height: 581px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
