@@ -6,6 +6,7 @@
   --primary-background-color: #f5f5f5;
   --secondary-background-color: #f5f4fa;
   --footer-background-color: #2f303a;
+  --modal-background-color: #ffffff;
   --button-active-color: #188ce8;
   --client-logo-color: #afb1b8;
   --primary-indent: 94px;
@@ -102,8 +103,7 @@ img {
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
-  /* transition: background-color 250ms var(--prymary-time-func),
-    transform 250ms var(--prymary-time-func); */
+  transition: background-color 250ms var(--prymary-time-func);
 }
 .nav-items .link:hover,
 .nav-items .link:focus {
@@ -111,6 +111,7 @@ img {
 }
 .nav-items .link.current {
   color: var(--accent-color);
+  transition: color 250ms var(--prymary-time-func);
 }
 .contacts .contact-item {
   display: flex;
@@ -121,6 +122,7 @@ img {
   letter-spacing: 0.03em;
   text-decoration: none;
   fill: currentColor;
+  transition: color 250ms var(--prymary-time-func);
 }
 .contact-item .icon {
   margin-right: 10px;
@@ -182,6 +184,7 @@ img {
   padding: 10px 32px;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms var(--prymary-time-func);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -298,6 +301,7 @@ img {
   width: 44px;
   border-radius: 50%;
   color: var(--client-logo-color);
+  transition: color, background-color 250ms var(--prymary-time-func);
 }
 .social-icon {
   fill: currentColor;
@@ -329,6 +333,7 @@ img {
 }
 .icon-logo {
   fill: var(--client-logo-color);
+  transition: fill 250ms var(--prymary-time-func);
 }
 .icon-logo:hover,
 .icon-logo:focus {
@@ -356,9 +361,11 @@ img {
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.71;
   letter-spacing: 0.03em;
+  transition: color 250ms var(--prymary-time-func);
 }
 .footer .footer-adress {
   color: var(--white-text-color);
+  transition: color 250ms var(--prymary-time-func);
 }
 .footer-contact:hover,
 .footer-contact:focus {
@@ -401,6 +408,7 @@ img {
   height: 44px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition: background-color 250ms var(--prymary-time-func);
 }
 .footer-social-icon .social-icon:hover,
 .footer-social-icon .social-icon:focus {
@@ -425,6 +433,7 @@ img {
   margin: 0;
   padding: 6px 22px;
   border-radius: 4px;
+  transition: color, background-color 250ms var(--prymary-time-func);
 }
 .portfolio-filter .filter-item:not(:last-child) {
   margin-right: 8px;
@@ -472,11 +481,14 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.card {
+.card-block {
   position: relative;
+  overflow: hidden;
 }
-.card:hover .card-overley {
-  display: block;
+.card-focus:hover .card-overley,
+.card-focus:focus .card-overley {
+  opacity: 1;
+  transform: translateY(0%);
 }
 .card-overley {
   position: absolute;
@@ -489,7 +501,10 @@ img {
   padding: 63px 24px;
   color: var(--white-text-color);
   background-color: rgba(33, 150, 243, 0.9);
-  display: none;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms var(--prymary-time-func),
+    opacity 250ms var(--prymary-time-func);
 }
 
 /* Modal-window */
@@ -503,7 +518,7 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 250ms var(--prymary-time-func);
 }
-.backdrop.is-hidden {
+.is-hidden {
   visibility: visible;
   opacity: 0;
   pointer-events: none;
@@ -514,7 +529,7 @@ img {
   left: 50%;
   min-width: 528px;
   min-height: 581px;
-  background-color: #ffffff;
+  background-color: var(--modal-background-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -527,7 +542,7 @@ img {
   cursor: pointer;
   width: 30px;
   height: 30px;
-  background-color: #ffffff;
+  background-color: var(--modal-background-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
