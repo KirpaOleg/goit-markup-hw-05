@@ -301,7 +301,8 @@ img {
   width: 44px;
   border-radius: 50%;
   color: var(--client-logo-color);
-  transition: color, background-color 250ms var(--prymary-time-func);
+  transition: color 250ms var(--prymary-time-func),
+    background-color 250ms var(--prymary-time-func);
 }
 .social-icon {
   fill: currentColor;
@@ -433,7 +434,9 @@ img {
   margin: 0;
   padding: 6px 22px;
   border-radius: 4px;
-  transition: color, background-color 250ms var(--prymary-time-func);
+  transition: color 250ms var(--prymary-time-func),
+    background-color 250ms var(--prymary-time-func),
+    box-shadow 250ms var(--prymary-time-func);
 }
 .portfolio-filter .filter-item:not(:last-child) {
   margin-right: 8px;
